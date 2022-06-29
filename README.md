@@ -1,6 +1,6 @@
 # API-project
 
-# Meetups
+# Meetup
 
 ## Database Schema Design
 
