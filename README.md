@@ -1127,7 +1127,7 @@ Edit a new venue specified by its id
   the group with a status of "co-host"
 * Request
   * Method: PUT
-  * URL: /venues/venueId
+  * URL: /venues/:venueId
   * Headers:
     * Content-Type: application/json
   * Body:
