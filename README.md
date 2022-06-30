@@ -1,8 +1,7 @@
 # Meetup
 
 ## Database Schema Design
-
-`<insert database schema design here>`![Untitled](https://user-images.githubusercontent.com/75222415/176785720-6f117f68-fab5-43ad-8f2f-b54dafeafb58.png)
+![Untitled](https://user-images.githubusercontent.com/75222415/176785720-6f117f68-fab5-43ad-8f2f-b54dafeafb58.png)
 
 
 ## API Documentation
