@@ -1,5 +1,3 @@
-# API-project
-
 # Meetup
 
 ## Database Schema Design
@@ -738,7 +736,7 @@ Change the status of a membership for a group specified by id.
 
 * Error response: If changing the status to "member" and Current User is not the
   organizer of the group or a member of the group with a status of "co-host".
-  * Status Code: 400
+  * Status Code: 403
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -746,7 +744,7 @@ Change the status of a membership for a group specified by id.
     ```json
     {
       "message": "Current User must be the organizer or a co-host to make someone a member",
-      "statusCode": 400
+      "statusCode": 403
     }
     ```
 
@@ -788,7 +786,13 @@ Delete a membership to a group specified by id.
   * URL: /api/groups/:groupId/members/:membersId
   * Headers:
     * Content-Type: application/json
-  * Body: none
+    * Body:
+
+    ```json
+    {
+      "memberId": 1
+    }
+    ```
 
 * Successful Response
   * Status Code: 200
@@ -812,6 +816,32 @@ Delete a membership to a group specified by id.
     {
       "message": "Group couldn't be found",
       "statusCode": 404
+    }
+    ```
+    
+    * Error response: Membership does not exist for this User
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Membership does not exist for this User",
+      "statusCode": 404
+    }
+    ```
+
+* Error response: Only the User or organizer may delete a Membership
+  * Status Code: 403
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Only the User or organizer may delete a Membership",
+      "statusCode": 403
     }
     ```
 
@@ -1628,7 +1658,13 @@ Delete an attendance to an event specified by id.
   * URL: /api/events/:eventId/attendees/:attendeeId
   * Headers:
     * Content-Type: application/json
-  * Body: none
+  * * Body: 
+
+    ```json
+    {
+      "userId": 1
+    }
+    ```
 
 * Successful Response
   * Status Code: 200
@@ -1654,6 +1690,33 @@ Delete an attendance to an event specified by id.
       "statusCode": 404
     }
     ```
+    
+    * Error response: Attendance does not exist for this User
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Attendance does not exist for this User",
+      "statusCode": 404
+    }
+    ```
+
+* Error response: Only the User or organizer may delete an Attendance
+  * Status Code: 403
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Only the User or organizer may delete an Attendance",
+      "statusCode": 403
+    }
+    ```
+
 
 ## Add an Image to a Group based on the Group's id
 
